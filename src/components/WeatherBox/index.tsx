@@ -20,7 +20,7 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, backgroundC
         <GridCentralizer>
             <Container style={{ background: backgroundColor }}>
                 <div hidden={hide}>
-                    <h1>{nameOfCity}</h1>
+                    <h1 style={{fontSize: "1.5rem"}}>{nameOfCity}</h1>
                     <DisplayFlex>
                         <img src={flag} alt="" />
                         <p><i>{country}</i></p>
@@ -34,13 +34,13 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, backgroundC
                     <DisplayFlex>
                         <h2 hidden={!tempType}>{Math.floor(Number(temperature) - 273.15)}°C</h2>
                         <div hidden={!tempType}>
-                            <Sun size={30} />
+                            <Sun size={25} />
                         </div>
                     </DisplayFlex>
                     <DisplayFlex>
                         <h2 hidden={tempType}>{Math.floor(Number(temperature) - 273.15) * 9 / 5 + 32}°F</h2>
                         <div hidden={tempType}>
-                            <Sun size={30} />
+                            <Sun size={25} />
                         </div>
                     </DisplayFlex>
                 </div>

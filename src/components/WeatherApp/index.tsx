@@ -23,11 +23,14 @@ export const WeatherApp = () => {
       setCountry(data.sys.country);
       setCountryFlag(`https://flagsapi.com/${data.sys.country}/shiny/32.png`);
       setCityTemp(data.main.temp);
+      setBgColor(cityTemp ? "orange" : "blue");
       setHide(false);
     }
     catch(err){
-      setCityNameData("Invalid or Incorrect City Name")
-      console.log(err)
+      setCityNameData("Invalid or Incorrect City Name");
+      setBgColor(!hide ? "red" : "blue");
+      setCityTemp(274); // Makes the temperature go to 0 if error happens.
+      console.log(err);
     }
   }
   function CheckInput(event: { target: { value: SetStateAction<string>; }; }) {
@@ -38,7 +41,7 @@ export const WeatherApp = () => {
     getCity(city);
   }
 
-  const bgColor = cityTemp >= 25 ? "orange" : "blue";
+  const [bgColor,setBgColor] = useState("blue");
   return (
     <>
       <WeatherBox

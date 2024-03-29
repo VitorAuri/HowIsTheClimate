@@ -39,5 +39,6 @@ img{
 }
 div{
     margin: 0px 5px;
+    
 }
 `
