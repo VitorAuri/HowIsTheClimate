@@ -4,10 +4,11 @@ import { FormContainer } from "./styles";
 
 export const WeatherApp = () => {
   const [city, setCity] = useState("");
-  const [countryFlag,setCountryFlag] = useState(`https://flagsapi.com/:country_code/flat/16.png`)
+  const [countryFlag,setCountryFlag] = useState(`https://flagsapi.com/:country_code/flat/16.png`);
+  const [hide,setHide] = useState(true);
 
   const APIkey: string = "59827be1e420eb390d3eb0bc73820d08";
-  const [cityNameData, setCityNameData] = useState("Enter name of a City!");
+  const [cityNameData, setCityNameData] = useState("");
   const [country, setCountry] = useState("");
   const [cityTemp, setCityTemp] = useState(0);
 
@@ -22,6 +23,7 @@ export const WeatherApp = () => {
       setCountry(data.sys.country);
       setCountryFlag(`https://flagsapi.com/${data.sys.country}/shiny/32.png`);
       setCityTemp(data.main.temp);
+      setHide(false);
     }
     catch(err){
       setCityNameData("Invalid or Incorrect City Name")
@@ -43,12 +45,13 @@ export const WeatherApp = () => {
         nameOfCity={cityNameData}
         country={country} 
         flag={countryFlag}
+        hide={hide}
         temperature={cityTemp.toString()}
         backgroundColor={bgColor}
         />
       <FormContainer onSubmit={HandleSubmit}>
         <h1>Type the name of the City below</h1>
-        <input type="text" onChange={CheckInput} />
+        <input placeholder="City name goes here" type="text" onChange={CheckInput} />
         <button>Get Current Climate</button>
       </FormContainer>
     </>

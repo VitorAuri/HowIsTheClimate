@@ -7,6 +7,7 @@ align-items: center;
 top: 0;
 left: 0;
 margin-left: 2px;
+margin-top: 0px;
 h1{
     margin: 0px 5px;
 }

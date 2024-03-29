@@ -15,6 +15,7 @@ border-radius: 8px;
 height: 300px;
 width: 300px;
 box-shadow: 0px 0px 10px black;
+transition: 0.5s;
 `
 export const TemperatureButton = styled.button`
 width: 180px;
@@ -34,6 +35,9 @@ display: flex;
 align-items: center;
 justify-content: center;
 img{
+    margin: 0px 5px;
+}
+div{
     margin: 0px 5px;
 }
 `
