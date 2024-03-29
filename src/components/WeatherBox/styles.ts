@@ -4,7 +4,7 @@ export const GridCentralizer = styled.div`
 display: grid;
 place-content: center;
 text-align: center;
-margin: 50px 0px;
+margin-top: 70px;
 `
 export const Container = styled.div`
 display: flex;

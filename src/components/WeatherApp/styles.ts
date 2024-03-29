@@ -5,7 +5,7 @@ display: grid;
 place-content: center;
 text-align: center;
 align-items: center;
-margin: 40px 0px;
+margin-top: 20px;
 input{
     height: 30px;
     width: 270px;
