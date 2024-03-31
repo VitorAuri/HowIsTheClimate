@@ -8,8 +8,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
 }
 body{
-    background-repeat: no-repeat;
-    height: 100vh;
-    background: linear-gradient(#e8e8e8,#9e9e9e);
+    overflow: hidden;
 }
 `

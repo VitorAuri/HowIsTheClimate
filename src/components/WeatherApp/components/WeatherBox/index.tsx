@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Container, DisplayFlex, GridCentralizer, TemperatureButton } from "./styles";
-import { Sun, SunHorizon } from "phosphor-react";
+import { SunHorizon, Wind } from "phosphor-react";
+import { TemperatureMeasurements } from "./components/TemperatureMeasurements";
 
 interface TypeOf {
     nameOfCity: string;
     country: string;
     temperature: string;
     flag: string;
-    backgroundColor: string;
     hide: boolean;
+    clouds: string;
+    wind: string;
 }
-export const WeatherBox = ({ nameOfCity, country, flag, temperature, backgroundColor, hide }: TypeOf) => {
+export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, clouds, wind }: TypeOf) => {
     const [tempType, setTempType] = useState(true)
     const changeTempType = () => {
         if (tempType) { setTempType(false) }
@@ -18,31 +20,27 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, backgroundC
     }
     return (
         <GridCentralizer>
-            <Container style={{ background: backgroundColor }}>
+            <Container>
                 <div hidden={hide}>
-                    <h1 style={{fontSize: "1.5rem"}}>{nameOfCity}</h1>
+                    <h1>{nameOfCity}</h1>
                     <DisplayFlex>
                         <img src={flag} alt="" />
                         <p><i>{country}</i></p>
                     </DisplayFlex>
                 </div>
                 <div hidden={!hide}>
-                    <h1 style={{color: "white", fontSize: "1.2rem", marginTop: "25px"}}>Enter the name of a City first!</h1>
-                    <SunHorizon style={{color: "white", marginTop: "10px"}} size={40}/>
+                    <h1>Enter the name of a City first!</h1>
+                    <SunHorizon size={40} />
                 </div>
                 <div hidden={hide}>
+                    <TemperatureMeasurements tempType={temperature} temperature={temperature} />
                     <DisplayFlex>
-                        <h2 hidden={!tempType}>{Math.floor(Number(temperature) - 273.15)}°C</h2>
-                        <div hidden={!tempType}>
-                            <Sun size={25} />
+                        <h2>{wind}m/s</h2>
+                        <div>
+                            <Wind size={25} />
                         </div>
                     </DisplayFlex>
-                    <DisplayFlex>
-                        <h2 hidden={tempType}>{Math.floor(Number(temperature) - 273.15) * 9 / 5 + 32}°F</h2>
-                        <div hidden={tempType}>
-                            <Sun size={25} />
-                        </div>
-                    </DisplayFlex>
+                    <h2>{clouds}</h2>
                 </div>
                 <div hidden={hide}>
                     <TemperatureButton onClick={changeTempType} hidden={!tempType}>See in Fahrenheit</TemperatureButton>
