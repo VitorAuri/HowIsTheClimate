@@ -5,8 +5,8 @@
 <h2>🔧 Tools used</h2>
 <ul>
   <li>React.js with TypeScript using <a href="https://vitejs.dev/">Vite</a></li>
-  <li><a href="https://styled-components.com/" target="_blank">Styled Components</a></li>
-  <li><a href="https://www.npmjs.com/package/phosphor-react" target="_blank">Phosphor-React</a></li>
-  <li><a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap API</a></li>
-  <li><a href="https://flagsapi.com/" target="_blank">FlagsAPI</a></li>
+  <li><a href="https://styled-components.com/">Styled Components</a></li>
+  <li><a href="https://www.npmjs.com/package/phosphor-react">Phosphor-React</a></li>
+  <li><a href="https://openweathermap.org/api">OpenWeatherMap API</a></li>
+  <li><a href="https://flagsapi.com/">FlagsAPI</a></li>
 </ul>
