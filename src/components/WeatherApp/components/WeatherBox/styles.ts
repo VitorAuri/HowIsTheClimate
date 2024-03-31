@@ -57,3 +57,9 @@ div{
     margin: 0px 5px;
 }
 `
+export const FirstView = styled.div`
+margin-top: 50px;
+h1{
+    font-size: 1.5rem;
+}
+`

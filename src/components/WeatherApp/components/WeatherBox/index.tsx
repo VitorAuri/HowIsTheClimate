@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, DisplayFlex, FlexFlag, GridCentralizer, TemperatureButton } from "./styles";
+import { Container, DisplayFlex, FirstView, FlexFlag, GridCentralizer, TemperatureButton } from "./styles";
 import { Drop, SunHorizon, Wind } from "phosphor-react";
 import { TemperatureMeasurements } from "./components/TemperatureMeasurements";
 
@@ -31,14 +31,14 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, cloud
                         </div>
                     </FlexFlag>
                 </div>
-                <div hidden={!hide}>
-                    <h1>Enter the name of a City first!</h1>
+                <FirstView hidden={!hide}>
                     <SunHorizon size={40} />
-                </div>
+                    <h1>Enter the name of a City first!</h1>
+                </FirstView>
                 <div hidden={hide}>
                     <TemperatureMeasurements tempType={temperature} temperature={temperature} />
                     <DisplayFlex>
-                        <h2>{wind} km/h</h2>
+                        <h2>{wind} m/s</h2>
                         <div>
                             <Wind size={25} />
                         </div>
