@@ -13,6 +13,7 @@ export const WeatherApp = () => {
   const [cityTemp, setCityTemp] = useState(0);
   const [clouds,setClouds] = useState("");
   const [wind,setWind] = useState("");
+  const [humidity,setHumidity] = useState("");
 
   async function getCity(city: string) {
     try {
@@ -28,7 +29,8 @@ export const WeatherApp = () => {
       setClouds(
         data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1)
       );
-      setWind(data.wind.speed)
+      setHumidity(data.main.humidity);
+      setWind(data.wind.speed);
       setHide(false);
     }
     catch (err) {
@@ -54,8 +56,9 @@ export const WeatherApp = () => {
           flag={countryFlag}
           hide={hide}
           temperature={cityTemp.toString()}
-          clouds={clouds} 
-          wind={wind}          
+          clouds={clouds}
+          wind={wind} 
+          humidity={humidity}          
           />
         <FormContainer onSubmit={HandleSubmit}>
           <input placeholder="City name goes here" type="text" onChange={CheckInput} />

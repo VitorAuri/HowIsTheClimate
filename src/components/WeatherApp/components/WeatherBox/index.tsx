@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Container, DisplayFlex, GridCentralizer, TemperatureButton } from "./styles";
-import { SunHorizon, Wind } from "phosphor-react";
+import { Container, DisplayFlex, FlexFlag, GridCentralizer, TemperatureButton } from "./styles";
+import { Drop, SunHorizon, Wind } from "phosphor-react";
 import { TemperatureMeasurements } from "./components/TemperatureMeasurements";
 
 interface TypeOf {
@@ -11,8 +11,9 @@ interface TypeOf {
     hide: boolean;
     clouds: string;
     wind: string;
+    humidity: string;
 }
-export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, clouds, wind }: TypeOf) => {
+export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, clouds, wind, humidity }: TypeOf) => {
     const [tempType, setTempType] = useState(true)
     const changeTempType = () => {
         if (tempType) { setTempType(false) }
@@ -22,11 +23,13 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, cloud
         <GridCentralizer>
             <Container>
                 <div hidden={hide}>
-                    <h1>{nameOfCity}</h1>
-                    <DisplayFlex>
-                        <img src={flag} alt="" />
-                        <p><i>{country}</i></p>
-                    </DisplayFlex>
+                    <FlexFlag>
+                        <h1>{nameOfCity}</h1>
+                        <div>
+                            <img src={flag} alt="" />
+                            <p><i>{country}</i></p>
+                        </div>
+                    </FlexFlag>
                 </div>
                 <div hidden={!hide}>
                     <h1>Enter the name of a City first!</h1>
@@ -35,9 +38,15 @@ export const WeatherBox = ({ nameOfCity, country, flag, temperature, hide, cloud
                 <div hidden={hide}>
                     <TemperatureMeasurements tempType={temperature} temperature={temperature} />
                     <DisplayFlex>
-                        <h2>{wind}m/s</h2>
+                        <h2>{wind} km/h</h2>
                         <div>
                             <Wind size={25} />
+                        </div>
+                    </DisplayFlex>
+                    <DisplayFlex>
+                        <h2>{humidity}%</h2>
+                        <div>
+                            <Drop size={25} />
                         </div>
                     </DisplayFlex>
                     <h2>{clouds}</h2>

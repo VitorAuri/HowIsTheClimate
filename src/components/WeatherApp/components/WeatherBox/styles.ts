@@ -11,7 +11,7 @@ flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
 border-radius: 8px;
-margin-top: -100px;
+margin-top: -130px;
 `
 export const TemperatureButton = styled.button`
 position: absolute;
@@ -41,6 +41,19 @@ img{
     margin: 0px 5px;
 }
 div{
+    margin: 0px 5px;
+}
+`
+export const FlexFlag = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+img{
+    margin: 0px 5px;
+}
+div{
+    display: flex;
+    align-items: center;
     margin: 0px 5px;
 }
 `
