@@ -1,9 +1,9 @@
-import clouds from '../../assets/clouds2.svg'
+import bg from '../../assets/bg.svg'
 import { BackgroundPosition } from './styles'
 export const Background = () => {
     return (
         <BackgroundPosition>
-            <img src={clouds} alt="" />
+            <img src={bg} alt="" />
         </BackgroundPosition>
     )
 }
